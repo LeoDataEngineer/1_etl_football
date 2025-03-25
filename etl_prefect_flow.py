@@ -1,4 +1,5 @@
 from prefect import task, flow
+from datetime import timedelta
 import subprocess
 
 # Definir tareas para ejecutar cada script ETL
@@ -19,7 +20,10 @@ def run_load():
     subprocess.run(["python", "load.py"], check=True)
 
 # Crear el flujo de trabajo
-@flow(name="ETL_Flow")
+@flow(name="ETL_Flow",
+        log_prints=True,
+        retries=3,
+        retry_delay_seconds=180)
 def etl_flow():
     # Ejecutar las tareas en orden, pero sin encadenar con `>>` ya que no se pasa resultado entre ellas
     run_bronze()
@@ -29,4 +33,5 @@ def etl_flow():
 
 # Ejecutar el flujo
 if __name__ == "__main__":
-    etl_flow()
+    etl_flow.serve(name="interval deployment", interval=timedelta(hours=1))
+   
