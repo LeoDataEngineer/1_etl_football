@@ -21,9 +21,12 @@ def run_load():
 # Crear el flujo de trabajo
 @flow(name="ETL_Flow")
 def etl_flow():
-    run_bronze() >> run_silver() >> run_gold() >> run_load()
+    # Ejecutar las tareas en orden, pero sin encadenar con `>>` ya que no se pasa resultado entre ellas
+    run_bronze()
+    run_silver()
+    run_gold()
+    run_load()
 
 # Ejecutar el flujo
 if __name__ == "__main__":
     etl_flow()
-
