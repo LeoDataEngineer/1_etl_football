@@ -1,5 +1,5 @@
-from prefect import task, Flow
-import subprocess  # Para ejecutar los archivos .py
+from prefect import task, flow
+import subprocess
 
 # Definir tareas para ejecutar cada script ETL
 @task
@@ -19,10 +19,11 @@ def run_load():
     subprocess.run(["python", "load.py"], check=True)
 
 # Crear el flujo de trabajo
-with Flow("ETL_Flow") as flow:
-    # Definir el orden de ejecución de las tareas
+@flow(name="ETL_Flow")
+def etl_flow():
     run_bronze() >> run_silver() >> run_gold() >> run_load()
 
 # Ejecutar el flujo
 if __name__ == "__main__":
-    flow.run()
+    etl_flow()
+
