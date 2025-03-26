@@ -33,5 +33,5 @@ def etl_flow():
 
 # Ejecutar el flujo
 if __name__ == "__main__":
-    etl_flow.serve(name="interval deployment", interval=timedelta(hours=1))
+    etl_flow.serve(name="interval deployment", interval=timedelta(hours=12))
    

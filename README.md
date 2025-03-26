@@ -68,6 +68,7 @@ CREATE TABLE equipo (
     CREATED_AT DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, -- Fecha de registro
     ID_LIGA INT, -- Relación con la tabla liga
     FOREIGN KEY (ID_LIGA) REFERENCES liga(ID_LIGA)
+    );
 ```
 
 ## Instalación y Ejecución (en local o en algun servidor)
@@ -119,3 +120,5 @@ etl_prefect_flow.py
 
 - Comparaciones de métricas entre ligas.
 
+### Nota: El Dashboard está en construcción
+[Link Dashboard](https://lookerstudio.google.com/)
