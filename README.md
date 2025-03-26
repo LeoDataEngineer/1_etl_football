@@ -90,6 +90,14 @@ pip install -r requirements.txt
 ### Configurar credenciales y variables de entorno
 #### Crear un archivo config.py y agregar las credenciales y secretos para la conexión a la base de datos
 
+```bash
+USER = ""         
+PASSWORD = ""  
+HOST = ""    
+PORT = ""        
+DATABASE = ""
+```
+
 ### Iniciar Prefect (orquestado)
 ```bash
 prefect server start
