@@ -40,6 +40,36 @@ El proyecto se basa en las siguientes tecnologías:
 6. **Visualización**: Los datos se muestran en un dashboard interactivo con métricas y estadísticas de las ligas.
 
 
+## Creación y modelado de Base de datos.
+```bash
+CREATE DATABASE football;
+
+USE football;
+
+-- Crear la tabla liga
+CREATE TABLE liga (
+    ID_LIGA INT PRIMARY KEY,
+    LIGA VARCHAR(100) NOT NULL
+);
+
+
+-- Crear la tabla equipo
+CREATE TABLE equipo (
+    ID_EQUIPO INT AUTO_INCREMENT PRIMARY KEY,
+    EQUIPO VARCHAR(100) NOT NULL,
+    J INT NOT NULL,  -- Partidos jugados
+    G INT NOT NULL,  -- Partidos ganados
+    E INT NOT NULL,  -- Partidos empatados
+    P INT NOT NULL,  -- Partidos perdidos
+    GF INT NOT NULL, -- Goles a favor
+    GC INT NOT NULL, -- Goles en contra
+    DIF INT NOT NULL, -- Diferencia de goles
+    PTS INT NOT NULL, -- Puntos
+    CREATED_AT DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, -- Fecha de registro
+    ID_LIGA INT, -- Relación con la tabla liga
+    FOREIGN KEY (ID_LIGA) REFERENCES liga(ID_LIGA)
+```
+
 ## Instalación y Ejecución (en local o en algun servidor)
 
 Para ejecutar el pipeline, sigue los siguientes pasos:
