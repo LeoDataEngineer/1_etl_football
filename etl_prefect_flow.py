@@ -20,7 +20,7 @@ def run_load():
     subprocess.run(["python", "load.py"], check=True)
 
 # Crear el flujo de trabajo
-@flow(name="ETL_Flow",
+@flow(name="ETL_Flow_football",
         log_prints=True,
         retries=3,
         retry_delay_seconds=180)
