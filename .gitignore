@@ -1,0 +1,6 @@
+.qodo
+config.py
+__pycache__/
+*.pyc
+prefect-env/
+app.ipynb
