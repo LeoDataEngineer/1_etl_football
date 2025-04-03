@@ -15,8 +15,6 @@ carpeta_origen = "gold"
 ruta_ligas = os.path.join(carpeta_origen, "tablas_concat.csv")
 df_ligas = pd.read_csv(ruta_ligas)
 
-#ruta_equipos = os.path.join(carpeta_origen, "equipos.csv")
-#df_equipos = pd.read_csv(ruta_equipos)
 
 # Convertir la columna CREATED_AT a formato datetime (si no está en ese formato)
 df_ligas['CREATED_AT'] = pd.to_datetime(df_ligas['CREATED_AT'])
