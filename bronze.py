@@ -35,6 +35,8 @@ for i, row in df_ligas.iterrows():
         if len(tables) >= 2:
             df = pd.concat([tables[0], tables[1]], ignore_index=True, axis=1)
             df= df.rename(columns={0:'EQUIPO',1:'J', 2:'G', 3:'E', 4:'P', 5:'GF', 6:'GC', 7:'DIF', 8:'PTS'})
+            df = df.sort_values(by='PTS', ascending=False).reset_index(drop=True)
+            df['POS'] = range(1, len(df) + 1)
         else:
             df = tables[0]  # Si solo hay una tabla, usarla directamente
         

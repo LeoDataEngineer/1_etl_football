@@ -57,26 +57,9 @@ df_equipos = pd.concat(dfs, ignore_index=True)
 # Sobrescribir la columna created_at con la fecha y hora actual
 df_equipos['CREATED_AT'] = fecha_actual
 
-# Guardar el resultado en un nuevo CSV si lo necesitas
+# Guardar el resultado en un nuevo CSV 
 tablas_concat= "tablas_concat.csv"
 save_csv(df_equipos, tablas_concat)
 
-
-# Crear tabla 'liga' con IDs únicos
-df_liga = pd.DataFrame({'ID_LIGA': range(1, df_equipos['LIGA'].nunique() + 1),
-                        'LIGA': df_equipos['LIGA'].unique()})
-# Guardar el resultado en un nuevo CSV si lo necesitas
-nombre_liga= "ligas.csv"
-save_csv(df_liga, nombre_liga)
-
-
-# Merge para reemplazar nombres de liga con id_liga en df_equipos
-df_equipos = df_equipos.merge(df_liga, on='LIGA', how='left')
-
-# Eliminar columna 'LIGA' y 'nombre_liga' para solo dejar 'id_liga'
-df_equipos.drop(columns=['LIGA'], inplace=True)
-
-nombre_equipo= "equipos.csv"
-save_csv(df_equipos, nombre_equipo)
 
 
