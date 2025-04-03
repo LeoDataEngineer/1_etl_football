@@ -40,18 +40,12 @@ El proyecto se basa en las siguientes tecnologías:
 6. **Visualización**: Los datos se muestran en un dashboard interactivo con métricas y estadísticas de las ligas.
 
 
-## Creación y modelado de Base de datos.
+## Creación de tabla en la Base de datos.
+
 ```bash
 CREATE DATABASE football;
 
 USE football;
-
--- Crear la tabla liga
-CREATE TABLE liga (
-    ID_LIGA INT PRIMARY KEY,
-    LIGA VARCHAR(100) NOT NULL
-);
-
 
 -- Crear la tabla equipo
 CREATE TABLE equipo (
@@ -65,9 +59,9 @@ CREATE TABLE equipo (
     GC INT NOT NULL, -- Goles en contra
     DIF INT NOT NULL, -- Diferencia de goles
     PTS INT NOT NULL, -- Puntos
+    POS INT NOT NULL, -- POSICION
+    LIGA VARCHAR(100) NOT NULL, 
     CREATED_AT DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, -- Fecha de registro
-    ID_LIGA INT, -- Relación con la tabla liga
-    FOREIGN KEY (ID_LIGA) REFERENCES liga(ID_LIGA)
     );
 ```
 
