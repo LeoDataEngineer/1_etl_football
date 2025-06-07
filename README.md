@@ -116,3 +116,4 @@ etl_prefect_flow.py
 
 ### Nota: El Dashboard
 [Link Dashboard](https://lookerstudio.google.com){:target="_blank"}
+<a href="https://lookerstudio.google.com" target="_blank">Link Dashboard</a>
