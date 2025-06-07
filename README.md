@@ -115,4 +115,4 @@ etl_prefect_flow.py
 - Comparaciones de métricas entre ligas.
 
 ### Nota: El Dashboard
-[Link Dashboard](https://lookerstudio.google.com/u/0/reporting/91a80995-faf4-4291-bc73-684e0b038144/page/p_f25owctard)
+[Link Dashboard](https://lookerstudio.google.com)
